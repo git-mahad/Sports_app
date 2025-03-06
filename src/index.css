@@ -1,0 +1,68 @@
+.sport-news{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0%;
+    margin: 0%;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin: 10px 90px 0 60px;
+    height: 100px;
+    background-color: lightblue;
+}
+
+span{
+    color: red;
+}
+
+.searchbar{
+    margin-top: 30px;
+    margin-right: 80px;
+}
+
+.btn{
+    background-color:rgb(228, 65, 65);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    height: 33px;
+}
+ .btn:hover{
+    background-color:darkgray;
+}
+
+.btn-search{
+    margin-left: 4px;
+    background-color: blue;
+    padding: 0 15px;
+}
+
+nav input{
+    border: none;
+    text-decoration: none;
+    font-size: 18px;
+    width: 200px;
+    padding: 8px;
+    height: 18px;
+}
+
+.catagory{
+    display: flex;
+    /* margin:  2px 350px; */
+}
+
+.btn-catagory{
+    border-radius: 40px ;
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+.CardContainer{
+    display: flex;
+    justify-content: center;
+    gap: 41px;
+    flex-wrap: wrap;
+}

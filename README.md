@@ -32,13 +32,13 @@ Mindful Unicorn is a React-based web application that fetches and displays the l
 1. Clone this repository:
 https://github.com/git-mahad/Sports_app.git
 
-2. Navigate to the project directory
+2. Navigate to the project directory:
 cd Sports_app
 
-3. Install dependencies
+3. Install dependencies:
 npm i
 
-4. Start the development server
+4. Start the development server:
 npm start
 
 

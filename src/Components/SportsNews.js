@@ -19,9 +19,10 @@ const SportsNews = () => {
             const baseQuery = `"${searchTerms}" AND (cricket OR "pakistan super league" OR PSL OR "psl cricket")`;
             const queries = encodeURIComponent(baseQuery);
 
-            const response = await fetch(
-                `/v2/everything?q=${queries}&language=en&sortBy=publishedAt&pageSize=100&apiKey=${api_key}`
-            );
+            const corsProxy = "https://corsproxy.io/?";
+            const targetURL = `https://newsapi.org/v2/everything?q=${queries}&language=en&sortBy=publishedAt&pageSize=100&apiKey=${api_key}`;
+            const response = await fetch(corsProxy + encodeURIComponent(targetURL));
+            
 
             if (!response.ok) {
                 throw new Error(`Error: ${response.status} ${response.statusText}`);

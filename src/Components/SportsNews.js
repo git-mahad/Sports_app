@@ -18,8 +18,9 @@ const SportsNews = () => {
             const searchTerms = customSearch.toLowerCase();
             const baseQuery = `"${searchTerms}" AND (cricket OR "pakistan super league" OR PSL OR "psl cricket")`;
             const queries = encodeURIComponent(baseQuery);
+
             const response = await fetch(
-                `https://newsapi.org/v2/everything?q=${queries}&language=en&sortBy=publishedAt&pageSize=100&apiKey=${api_key}`
+                `/v2/everything?q=${queries}&language=en&sortBy=publishedAt&pageSize=100&apiKey=${api_key}`
             );
 
             if (!response.ok) {
@@ -90,8 +91,9 @@ const SportsNews = () => {
                     {error}
                 </div>
             )}
-            <div>{
-                newsData && newsData.length > 0 ? <Card data={newsData} /> : null}</div>
+            <div>
+                {newsData && newsData.length > 0 ? <Card data={newsData} /> : null}
+            </div>
         </div>
     );
 };

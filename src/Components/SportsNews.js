@@ -15,32 +15,34 @@ const SportsNews = () => {
 
     const getData = async (customSearch = search) => {
         try {
-            const searchTerms = customSearch.toLowerCase();
-            const baseQuery = `"${searchTerms}" AND (cricket OR "pakistan super league" OR PSL OR "psl cricket")`;
-            const queries = encodeURIComponent(baseQuery);
-
-            const corsProxy = "https://corsproxy.io/?";
-            const targetURL = `https://newsapi.org/v2/everything?q=${queries}&language=en&sortBy=publishedAt&pageSize=100&apiKey=${api_key}`;
-            const response = await fetch(corsProxy + encodeURIComponent(targetURL));
-            
-
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status} ${response.statusText}`);
-            }
-
-            const jsonData = await response.json();
-            if (!jsonData.articles || jsonData.articles.length === 0) {
-                setError("No news found. Try different search terms.");
-                setNewsData([]);
-            } else {
-                setNewsData(jsonData.articles);
-                setError(null);
-            }
+          const searchTerms = customSearch.toLowerCase();
+          const baseQuery = `"${searchTerms}" AND (cricket OR "pakistan super league" OR PSL OR "psl cricket")`;
+          const queries = encodeURIComponent(baseQuery);
+      
+          const api_key = "08511eab8fdb4d82a29ead09d9a10c09";
+          const url = `https://newsapi.org/v2/everything?q=${queries}&language=en&sortBy=publishedAt&pageSize=100&apiKey=${api_key}`;
+          const corsProxy = "https://corsproxy.io/?";
+      
+          const response = await fetch(corsProxy + encodeURIComponent(url));
+      
+          if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+          }
+      
+          const jsonData = await response.json();
+          if (!jsonData.articles || jsonData.articles.length === 0) {
+            setError("No news found. Try different search terms.");
+            setNewsData([]);
+          } else {
+            setNewsData(jsonData.articles);
+            setError(null);
+          }
         } catch (err) {
-            console.error("Failed to fetch data:", err.message);
-            setError(err.message);
+          console.error("Failed to fetch data:", err.message);
+          setError(err.message);
         }
-    };
+      };
+      
 
     const handleInput = (e) => {
         setSearch(e.target.value);
